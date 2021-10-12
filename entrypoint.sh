@@ -31,6 +31,7 @@ branch_uri="$(urlencode ${branch})"
 sh -c 'echo iniciando proceso de sshkey'
 sh -c "mkdir -p usr/bin/.ssh/"
 sh -c "echo \"$SSH_PRIVATE_KEY\" > usr/bin/.ssh/gitlab_bot"
+sh -c "ls usr/bin/.ssh/"
 sh -c 'chmod 600 usr/bin/.ssh/gitlab_bot'
 sh -c 'echo ending proceso de sshkey'
 
