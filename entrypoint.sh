@@ -17,6 +17,12 @@ urlencode() (
     done
 )
 
+
+mkdir -p ~/.ssh/
+echo "$SSH_PRIVATE_KEY" > ../private.key
+sudo chmod 600 ../private.key
+echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
 ##################################################################
 DEFAULT_POLL_TIMEOUT=10
 POLL_TIMEOUT=${POLL_TIMEOUT:-$DEFAULT_POLL_TIMEOUT}
@@ -32,6 +38,8 @@ sh -c "git config --global credential.helper cache"
 sh -c "git remote add mirror $*"
 sh -c "echo pushing to $branch branch at $(git remote get-url --push mirror)"
 sh -c "git push mirror $branch"
+
+
 
 sleep $POLL_TIMEOUT
 
