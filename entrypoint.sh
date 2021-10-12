@@ -35,6 +35,7 @@ sh -c "ls usr/bin/.ssh/"
 sh -c 'chmod 600 usr/bin/.ssh/gitlab_bot'
 sh -c 'echo ending proceso de sshkey'
 
+sh -c "git config http.sslVerify false"
 sh -c "echo $*"
 sh -c "git config --global credential.username $GITLAB_USERNAME"
 sh -c "git config --global core.askPass /cred-helper.sh"
