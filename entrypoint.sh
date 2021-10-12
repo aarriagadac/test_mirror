@@ -21,7 +21,6 @@ urlencode() (
 mkdir -p ~/.ssh/
 echo "$SSH_PRIVATE_KEY" > ../private.key
 sudo chmod 600 ../private.key
-echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
 
 ##################################################################
 DEFAULT_POLL_TIMEOUT=10
