@@ -18,9 +18,6 @@ urlencode() (
 )
 
 
-sh -c "mkdir -p ~/.ssh/"
-sh -c 'echo "$SSH_PRIVATE_KEY" > ../private.key'
-sh -c 'chmod 600 ../private.key'
 
 ##################################################################
 DEFAULT_POLL_TIMEOUT=10
@@ -30,6 +27,12 @@ git checkout "${GITHUB_REF:11}"
 
 branch="$(git symbolic-ref --short HEAD)"
 branch_uri="$(urlencode ${branch})"
+
+sh -c 'echo iniciando proceso de sshkey'
+sh -c "mkdir -p ~/.ssh/"
+sh -c 'echo "$SSH_PRIVATE_KEY" > ../private.key'
+sh -c 'chmod 600 ../private.key'
+sh -c 'echo terminando proceso de sshkey'
 
 sh -c "git config --global credential.username $GITLAB_USERNAME"
 sh -c "git config --global core.askPass /cred-helper.sh"
