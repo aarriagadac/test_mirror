@@ -1,2 +1,2 @@
 #!/bin/sh
-exec echo "$GITLAB_PASSWORD"
+exec echo "8KkzuCuR1WYKQbKpqaP2"
