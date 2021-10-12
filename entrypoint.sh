@@ -30,11 +30,11 @@ branch_uri="$(urlencode ${branch})"
 
 sh -c 'echo iniciando proceso de sshkey'
 sh -c "mkdir -p ~/.ssh/"
-sh -c "echo \"$SSH_PRIVATE_KEY\" > ../private.key"
-sh -c 'chmod 600 ../private.key'
+sh -c "echo \"$SSH_PRIVATE_KEY\" > ../gitlab_bot"
+sh -c 'chmod 600 ../gitlab_bot'
 sh -c 'echo terminando proceso de sshkey'
 
-sh -c "git config --list"
+
 sh -c "echo $*"
 sh -c "git config --global credential.username $GITLAB_USERNAME"
 sh -c "git config --global core.askPass /cred-helper.sh"
@@ -42,6 +42,7 @@ sh -c "git config --global credential.helper cache"
 sh -c "git remote add mirror $*"
 sh -c "echo pushing to $branch branch at $(git remote get-url --push mirror)"
 sh -c "git push mirror $branch"
+sh -c "git config --list"
 
 
 
