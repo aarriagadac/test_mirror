@@ -29,11 +29,9 @@ branch="$(git symbolic-ref --short HEAD)"
 branch_uri="$(urlencode ${branch})"
 
 sh -c 'echo iniciando proceso de sshkey'
-sh -c "mkdir -p ~/.ssh/"
-sh -c "echo $SSH_PRIVATE_KEY"
-sh -c "echo '$SSH_PRIVATE_KEY' > ~/.ssh/gitlab_bot"
-sh -c 'chmod 600 ~/.ssh/gitlab_bot'
-sh -c '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+sh -c "mkdir -p usr/bin/.ssh/"
+sh -c "echo \"$SSH_PRIVATE_KEY\" > usr/bin/.ssh/gitlab_bot"
+sh -c 'chmod 600 usr/bin/.ssh/gitlab_bot'
 sh -c 'echo ending proceso de sshkey'
 
 sh -c "echo $*"
