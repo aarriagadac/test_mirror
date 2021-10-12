@@ -19,8 +19,8 @@ urlencode() (
 
 
 sh -c "mkdir -p ~/.ssh/"
-sh -c ' echo  "$SSH_PRIVATE_KEY" > ../private.key'
-sh -c 'sudo chmod 600 ../private.key'
+sh -c 'echo "$SSH_PRIVATE_KEY" > ../private.key'
+sh -c 'chmod 600 ../private.key'
 
 ##################################################################
 DEFAULT_POLL_TIMEOUT=10
