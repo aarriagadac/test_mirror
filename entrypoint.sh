@@ -34,6 +34,7 @@ sh -c 'echo "$SSH_PRIVATE_KEY" > ../private.key'
 sh -c 'chmod 600 ../private.key'
 sh -c 'echo terminando proceso de sshkey'
 
+sh -c "echo $*"
 sh -c "git config --global credential.username $GITLAB_USERNAME"
 sh -c "git config --global core.askPass /cred-helper.sh"
 sh -c "git config --global credential.helper cache"
